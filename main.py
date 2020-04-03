@@ -31,15 +31,14 @@ def query_latinizer(fact):
 
 def get_latinized(redirect_url):
     response = requests.get(redirect_url)
+    quote = ""
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, "html.parser")
         body = soup.find_all("body")
         quote = body[0].getText().strip("\nPig Latin\nEsultray\n")
 
-        return quote.strip()
-
-    return None
+    return quote.strip()
 
 
 @app.route('/')
