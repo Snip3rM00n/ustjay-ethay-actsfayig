@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Your Pig Latin Fact</title>
+    </head>
+    <body>
+        <h1>Your Pig Latin Fact Is:</h1>
+        <h2>{{ pl_fact }}</h2>
+        <div>Brought to you by: <a href="{{ redirect_url }}">The Pig Latinizer Service</a></div>
+        <br/>
+        <button id="toggler" onclick="toggleOriginal()">I don't understand Pig Latin!</button>
+        <div id="originalText" style="display: none">
+            <h4>The original quote was:</h4>
+            <p>{{ original_text }}</p>
+        </div>
+
+        <script>
+        function toggleOriginal(){
+            var original = document.getElementById("originalText");
+            var toggleButton = document.getElementById("toggler");
+
+            if (original.style.display === "none"){
+                original.style.display = "block";
+                toggleButton.innerText = "Oh!  I get it now!";
+            } else {
+                original.style.display = "none";
+                toggleButton.innerText = "Wait... what did it say?";
+            }
+        }
+        </script>
+    </body>
+</html>
